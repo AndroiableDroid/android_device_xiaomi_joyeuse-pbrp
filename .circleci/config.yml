@@ -42,6 +42,7 @@ jobs:
               --workdir /home/builder/ \
               fr3akyphantom/droid-builder:edge bash \<< EOF
             curl -sL https://raw.githubusercontent.com/PitchBlackRecoveryProject/vendor_utils/Tess/remote_build.sh -o build.sh
+            sed -i "s:GITHUB_TOKEN@github.com\/PitchBlackRecoveryProject:GITHUB_TOKEN@github.com\/AndroiableDroid:g" build.sh
             source build.sh
             EOF
 workflows:
@@ -52,4 +53,4 @@ workflows:
           filters:
             branches:
               only: 'android-10.0'
-          context: org-global
+          context: upload
